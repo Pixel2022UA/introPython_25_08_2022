@@ -123,16 +123,25 @@ my_new_list_2 = list(set(my_str_2.lower()).intersection(set(my_str_1.lower())))
 my_str_1 = "abcvnnnj"
 my_str_2 = "abcvvvv"
 
-        ## Вариант записи №1 ##
+        ## Вариант записи №1 ## (без учета больших букв)
 
 my_list_1 = []
 for element in my_str_1 and my_str_2:
     if my_str_1.count(element) and my_str_2.count(element) == 1:
         my_list_1.append(element)
 
-        ## Вариант записи №2 ##
+        ## Вариант записи №2 ## (без учета больших букв)
 
 my_list_2 = [element for element in my_str_1 and my_str_2 if my_str_1.count(element) and my_str_2.count(element) == 1]
 
+        ## Вариант решения №3 ## (с учетом больших букв)
 
+my_list_3 = []
+for element in my_str_1 and my_str_2:
+    if my_str_1.lower().count(element) and my_str_2.lower().count(element) == 1:
+        my_list_3.append(element)
+
+        ## Вариант записи №4 ## (с учетом больших букв)
+
+my_list_4 = [element for element in my_str_1 and my_str_2 if my_str_1.lower().count(element) and my_str_2.lower().count(element) == 1]
 
