@@ -122,7 +122,7 @@ for element in my_str_1 and my_str_2:
     if my_str_1.count(element) and my_str_2.count(element) == 1:
         my_list_1.append(element)
 
-        ## Вариант записи №1 ##
+        ## Вариант записи №2 ##
 
 my_list_2 = [element for element in my_str_1 and my_str_2 if my_str_1.count(element) and my_str_2.count(element) == 1]
 
