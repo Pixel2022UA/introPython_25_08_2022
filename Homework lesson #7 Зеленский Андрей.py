@@ -99,11 +99,11 @@ my_str = "ERggggggggJrtyujhgfwerT$%^#$%&Y"
 
         ## Вариант решения №1 ##(без учета больших букв)
 
-my_new_list_1 = [element for element in my_str if my_str.count(element) == 1]
+my_new_list_1 = [element for element in set(my_str) if my_str.count(element) == 1]
 
         ## Вариант решения №2 ##(с учетом больших букв)
 
-my_new_list_2 = [element for element in my_str if my_str.lower().count(element) == 1]
+my_new_list_2 = [element for element in set(my_str) if my_str.lower().count(element) == 1]
 
 # TASK №12 ######################################################
 
@@ -120,28 +120,28 @@ my_new_list_2 = list(set(my_str_2.lower()).intersection(set(my_str_1.lower())))
 
 # TASK №13 ######################################################
 
-my_str_1 = "abcvnnnj"
-my_str_2 = "abcvvvv"
+my_str_1 = "abcvnnnjj"
+my_str_2 = "abcvvvvj"
 
         ## Вариант записи №1 ## (без учета больших букв)
 
 my_list_1 = []
-for element in my_str_1 and my_str_2:
-    if my_str_1.count(element) and my_str_2.count(element) == 1:
+for element in set(my_str_1) and set(my_str_2):
+    if my_str_1.count(element) == 1 and my_str_2.count(element) == 1:
         my_list_1.append(element)
 
         ## Вариант записи №2 ## (без учета больших букв)
 
-my_list_2 = [element for element in my_str_1 and my_str_2 if my_str_1.count(element) and my_str_2.count(element) == 1]
+my_list_2 = [element for element in set(my_str_1) and set(my_str_2) if my_str_1.count(element) == 1 and my_str_2.count(element) == 1]
 
         ## Вариант решения №3 ## (с учетом больших букв)
 
 my_list_3 = []
-for element in my_str_1 and my_str_2:
-    if my_str_1.lower().count(element) and my_str_2.lower().count(element) == 1:
+for element in set(my_str_1) and set(my_str_2):
+    if my_str_1.lower().count(element) == 1 and my_str_2.lower().count(element) == 1:
         my_list_3.append(element)
 
         ## Вариант записи №4 ## (с учетом больших букв)
 
-my_list_4 = [element for element in my_str_1 and my_str_2 if my_str_1.lower().count(element) and my_str_2.lower().count(element) == 1]
+my_list_4 = [element for element in set(my_str_1) and set(my_str_2) if my_str_1.lower().count(element) == 1 and my_str_2.lower().count(element) == 1]
 
