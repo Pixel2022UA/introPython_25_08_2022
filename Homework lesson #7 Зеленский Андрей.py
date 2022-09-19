@@ -68,7 +68,7 @@ my_str = "gaerrhdhagg"
 if len(my_str) % 2 != 0:
     my_str = my_str + "_"
 
-my_list = [my_str[symbol:symbol + 2] for symbol in range(0, len(my_str), 2)]
+my_list = [my_str[index:index + 2] for index in range(0, len(my_str), 2)]
 
 # TASK №9######################################################
 
