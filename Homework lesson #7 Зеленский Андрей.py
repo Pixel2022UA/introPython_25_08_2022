@@ -70,7 +70,7 @@ if len(my_str) % 2 != 0:
 
 my_list = [my_str[index:index + 2] for index in range(0, len(my_str), 2)]
 
-# TASK №9######################################################
+# TASK №9 ######################################################
 
 my_list = [2, 4, 1, 5, 3, 9, 0, 7]
 index = 1
@@ -80,12 +80,12 @@ for elem in my_list[1:-1]:
         count += 1
     index += 1
 print(count)
-# TASK №10######################################################
+# TASK №10 ######################################################
 
 my_list = [1, 2, 3, "11", "22", 33]
 my_new_list = [i for i in my_list if i is str(i)]
 
-# TASK №11######################################################
+# TASK №11 ######################################################
 
 my_str = "ERggggggggJrtyujhgfwerT$%^#$%&Y"
 
@@ -97,7 +97,7 @@ my_new_list_1 = [element for element in my_str if my_str.count(element) == 1]
 
 my_new_list_2 = [element for element in my_str if my_str.lower().count(element) == 1]
 
-# TASK №12######################################################
+# TASK №12 ######################################################
 
 my_str_1 = "Qabcvti@#$%^UFD^Y&dfgt"
 my_str_2 = "qabcfvVti*Igveefgjk#"
@@ -106,12 +106,11 @@ my_str_2 = "qabcfvVti*Igveefgjk#"
 
 my_new_list_1 = list(set(my_str_2).intersection(set(my_str_1)))
 
-
         ## Вариант решения №2 ##(с учетом больших букв)
 
 my_new_list_2 = list(set(my_str_2.lower()).intersection(set(my_str_1.lower())))
 
-# TASK №13######################################################
+# TASK №13 ######################################################
 
 my_str_1 = "abcvnnnj"
 my_str_2 = "abcvvvv"
@@ -126,4 +125,6 @@ for element in my_str_1 and my_str_2:
         ## Вариант записи №2 ##
 
 my_list_2 = [element for element in my_str_1 and my_str_2 if my_str_1.count(element) and my_str_2.count(element) == 1]
+
+
 
