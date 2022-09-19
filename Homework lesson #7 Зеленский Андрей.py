@@ -103,12 +103,13 @@ my_str_1 = "Qabcvti@#$%^UFD^Y&dfgt"
 my_str_2 = "qabcfvVti*Igveefgjk#"
 
         ## Вариант решения №1 ##(без учета больших букв)
+
 my_new_list_1 = list(set(my_str_2).intersection(set(my_str_1)))
 
 
         ## Вариант решения №2 ##(с учетом больших букв)
-my_new_list_2 = list(set(my_str_2.lower()).intersection(set(my_str_1.lower())))
 
+my_new_list_2 = list(set(my_str_2.lower()).intersection(set(my_str_1.lower())))
 
 # TASK №13######################################################
 
