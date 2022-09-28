@@ -8,8 +8,6 @@ my_new_list = []
 for index, element in enumerate(my_list, 1):
     if element is str(element) and index % 2 != 0:
         my_new_list.append(element[::-1])
-    else:
-        pass
 
         ### Вариант записи №2 ###
 
@@ -39,12 +37,12 @@ my_list = ["asfsgh", "tyqwet", 1 , "2qAwer", 45, 78, "afeh", "qwe"]
 
 my_new_list = []
 for element in my_list:
-    if element is str(element) and element.lower().count("a") >= 1:
+    if element is str(element) and "a" in element.lower():
         my_new_list.append(element)
 
         ## Вариант записи №2 ###
 
-my_new_list_1 = [element for element in my_list if element is str(element) and element.lower().count("a") >= 1]
+my_new_list_1 = [element for element in my_list if element is str(element) and "a" in element.lower()]
 
 ### TASK №4 ######################################################
 
