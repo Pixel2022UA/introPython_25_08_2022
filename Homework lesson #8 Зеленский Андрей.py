@@ -1,17 +1,15 @@
 ### TASK №1 ######################################################
 
-my_list = ["dsfsgh", "tyqwet", 1 , "2qwer", 45, 78, "wfeh", "qwe"]
+my_list = ["dsfsgh", "tyqwet", 1, "2qwer", 45, 78, "wfeh", "qwe"]
 
         ### Вариант записи №1 ###
 
 my_new_list = []
 for index, element in enumerate(my_list, 1):
     if element is str(element) and index % 2 != 0:
-        my_new_list.append(element[::-1])
-
-        ### Вариант записи №2 ###
-
-my_new_list_1 = [element[::-1] for index, element in enumerate(my_list, 1) if element is str(element) and index % 2 != 0]
+        my_new_list.append(element)
+     elif index % 2 == 0:
+        my_new_list.append(element)
 
 
 ### TASK №2 ######################################################
@@ -60,9 +58,7 @@ my_list_1 = [key for key, val in names_ages if val == names_ages[0][1]]
 names_ages = []
 my_list_2 =[]
 for persons in persons:
-    names_ages.append([persons["name"], persons["age"]])
-for elem in names_ages:
-    elem = elem.reverse()
+    names_ages.append([persons["age"], persons["name"]])
 names_ages.sort()
 for key, val in names_ages:
     if key == names_ages[0][0]:
@@ -77,11 +73,12 @@ name_list = [elem for elem in name_list if len(elem) == len(max(name_list, key=l
         ## Задание б), вариант решения №2 ###
 
 name_list = []
+name_list_long = []
 for persons in persons:
     name_list.append(persons["name"])
-    for elem in name_list:
-        if len(elem) != len(max(name_list, key=len)):
-            name_list.remove(elem)
+for elem in name_list:
+    if len(elem) == len(max(name_list, key=len)):
+        name_list_long.append(elem)
 
         ## Задание в) ###
 
@@ -91,57 +88,68 @@ age_list_avg = round(sum(age_list)/len(age_list), 1)
 
 ### TASK №5 ######################################################
 
-Cat_1 = {'name': 'Kitty_1',
+cat_1 = {'name': 'Kitty_1',
          'colour': 'Red',
          'age': 4,
          'city': 'London',
          }
-Cat_2 = {'name': 'Kitty_2',
+cat_2 = {'name': 'Kitty_2',
          'colour': 'Brown',
          'age': 7,
          'country': 'China'
          }
 
     ## Задание a) ###
-my_list_1 = list(set(Cat_1.keys()).intersection(set(Cat_2.keys())))
+my_list_1 = list(set(cat_1.keys()).intersection(set(cat_2.keys())))
 
     ## Задание б) ###
 
-my_list_2 = list(set(Cat_1.keys()).difference(set(Cat_2.keys())))
+my_list_2 = list(set(cat_1.keys()).difference(set(cat_2.keys())))
 
     ## Задание в) ###
 
 my_dict = {}
-for key, val in Cat_1.items():
-    if key not in Cat_2:
+for key, val in cat_1.items():
+    if key not in cat_2:
         my_dict[key] = val
 
 
-my_dict_1 = {key: val for key, val in Cat_1.items() if key not in Cat_2}
+my_dict_1 = {key: val for key, val in cat_1.items() if key not in cat_2}
 
     ## Задание г) Пример записи №1 ###
 
 my_dict_3 = {}
-for elem in Cat_1:
-    if elem in Cat_2:
-        my_dict_3.update([(elem, [Cat_1[elem], Cat_2[elem]])])
+for elem in cat_1:
+    if elem in cat_2:
+        my_dict_3.update([(elem, [cat_1[elem], cat_2[elem]])])
     else:
-        my_dict_3.update([(elem, Cat_1[elem])])
-for elem_1 in Cat_2:
-    if elem_1 not in Cat_1:
-        my_dict_3.update([(elem_1, Cat_2[elem_1])])
+        my_dict_3.update([(elem, cat_1[elem])])
+for elem_1 in cat_2:
+    if elem_1 not in cat_1:
+        my_dict_3.update([(elem_1, cat_2[elem_1])])
 
     ## Задание г) Пример записи №2 ###
 
 my_dict_4 = {}
-for elem in Cat_1.items():
-    if elem[0] not in Cat_2:
+for elem in cat_1.items():
+    if elem[0] not in cat_2:
         my_dict_4[elem[0]] = elem[1]
     else:
-        my_dict_4[elem[0]] = [elem[1], Cat_2[elem[0]]]
-for elem_2 in Cat_2.items():
-    if elem_2[0] not in Cat_1:
+        my_dict_4[elem[0]] = [elem[1], cat_2[elem[0]]]
+for elem_2 in cat_2.items():
+    if elem_2[0] not in cat_1:
         my_dict_4[elem_2[0]] = elem_2[1]
+
+
+## Задание г) Пример записи №3 (Более короткий вариант) ###
+
+my_dict_3 = cat_1
+
+for key, val in cat_2.items():
+    if key in cat_1:
+        my_dict_3[key] = [my_dict_3[key], val]
+    else:
+        my_dict_3.update({key: val})
 
 
 
