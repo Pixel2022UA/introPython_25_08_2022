@@ -7,8 +7,8 @@ my_list = ["dsfsgh", "tyqwet", 1, "2qwer", 45, 78, "wfeh", "qwe"]
 my_new_list = []
 for index, element in enumerate(my_list, 1):
     if element is str(element) and index % 2 != 0:
-        my_new_list.append(element)
-     elif index % 2 == 0:
+        my_new_list.append(element[::-1])
+    elif index % 2 == 0:
         my_new_list.append(element)
 
 
