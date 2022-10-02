@@ -1,3 +1,6 @@
+import random as rnd
+import string as str
+
 
 my_list = ["dsfsgh", "atyqwet", "1", "2qwer", "34yahg", "fdhhh", "wfeh", "qwe"]
 my_list_2 = ["asfsgh", "tyqwet", 1 , "2qAwer", 45, 78, "afeh", "qwe"]
@@ -69,9 +72,6 @@ def onetime_inter_elem(my_str, my_str_2):
 
 ### TASK №8 ######################################################
 
-import random as rnd
-import string as str
-
 names = ["Jack", "Piter", "Liza", "Elvis"]
 domains = ["com", "ua", "com.ua", "biz"]
 
@@ -83,3 +83,4 @@ def email_generator(names, domains):
     rnd_email = "".join(f"{rnd_name}.{rnd_int_to_str}@{rnd_str}.{rnd_domain}")
     return rnd_email
     # или сразу return f"{rnd_name}.{rnd_int_to_str}@{rnd_str}.{rnd_domain}")
+print(email_generator(names, domains))

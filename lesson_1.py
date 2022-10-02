@@ -4,7 +4,7 @@ import calendar
 filename_3 = "authors.txt"
 
 def sort_def(filename_3):
-    dict_dates_modify = []
+    dict_1 = []
     dates_list = []
     date_modified = []
     month_dict = {name: num for num, name in enumerate(calendar.month_name) if num}
@@ -16,7 +16,7 @@ def sort_def(filename_3):
         #         date, info = line.split('-')
         for elem in str_:
             dates_str = "".join(re.findall(pattern_of_date, elem))
-            dict_dates_modify.append({"date_original": dates_str})
+            dict_1.append({"date_original": dates_str})
             dates_list.append(dates_str)
             # print(dates_list)
 
@@ -44,7 +44,7 @@ def sort_def(filename_3):
 
 
 
-    return dict_dates_modify
+    return dict_1
 #
 #
 #
