@@ -80,7 +80,6 @@ def email_generator(names, domains):
     rnd_domain = rnd.choice(domains)
     rnd_int_to_str = rnd.randint(100, 999)
     rnd_str = "".join(rnd.choice(str.ascii_lowercase) for i in range(rnd.randint(5, 7)))
-    return f"{rnd_name}.{rnd_int_to_str}@{rnd_str}.{rnd_domain}"
-
-
-
+    rnd_email = "".join(f"{rnd_name}.{rnd_int_to_str}@{rnd_str}.{rnd_domain}")
+    return rnd_email
+    # или сразу return f"{rnd_name}.{rnd_int_to_str}@{rnd_str}.{rnd_domain}")
