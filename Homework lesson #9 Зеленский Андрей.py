@@ -83,4 +83,4 @@ def email_generator(names, domains):
     rnd_email = "".join(f"{rnd_name}.{rnd_int_to_str}@{rnd_str}.{rnd_domain}")
     return rnd_email
     # или сразу return f"{rnd_name}.{rnd_int_to_str}@{rnd_str}.{rnd_domain}")
-print(email_generator(names, domains))
+
