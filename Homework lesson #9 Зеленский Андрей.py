@@ -45,7 +45,7 @@ def list_str(my_list_2):
         if element is str(element):
             my_new_list_3.append(element)
     return my_new_list_3
-
+print(list_str(my_list_2))
 ### TASK №5 ######################################################
 
 def onetime_elem_in_str(my_str):

@@ -1,4 +1,12 @@
-ukr.net
-com.ua
-com.au
-biz.net
+.com
+.net
+.biz
+.info
+.org
+.tel
+.travel
+.aero
+.pro
+.xxx
+.name
+.mobi
