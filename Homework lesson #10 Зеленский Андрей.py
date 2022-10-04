@@ -1,4 +1,4 @@
-import re
+import calendar
 
 ### TASK №1 ######################################################
 
@@ -46,8 +46,6 @@ def sort_def(filename_3):
 sort_def(filename_3)
 
 ### TASK №4 ######################################################
-
-import calendar
 
 filename_3 = "authors.txt"
 
