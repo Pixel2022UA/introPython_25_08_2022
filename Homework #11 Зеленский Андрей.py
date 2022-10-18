@@ -37,7 +37,7 @@ generate_json_data()
 
 ### TASK №3 ######################################################
 
-dirname = "C:/Users/Пиксель/PycharmProjects/introPython_25_08_2022/random.json"
+dirname = "C:/Users/Пиксель/PycharmProjects/introPython_25_08_2022/random.txt"
 
 def generate_and_write_file(dirname: str):
     if os.path.splitext(dirname)[1][1:] == "json":
