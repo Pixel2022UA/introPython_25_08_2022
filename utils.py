@@ -21,6 +21,7 @@ def load_data(config_dir, cond_system_dir):
 global_data = load_data(config_dir, cond_system_dir)
 data_for_func = list(global_data.values())
 
+
 def upload_files(filename):
     data_2 = {**global_data, **filename}
     with open(cond_system_dir, "w") as json_file:
@@ -31,6 +32,7 @@ def upload_files(filename):
 def rate(global_data):
     price = "".join("{:.02f}".format(global_data["course"]))
     return price
+
 
 def available(data_for_fun):
     balance = " ".join([(str(k)+" "+ "{:.02f}".format(v)) for k, v in global_data.items()][1:3])
@@ -65,8 +67,6 @@ def sell_xxx(sell_usd):
     return
 
 
-
-
 def buy_all():
     if data_for_func[1] > data_for_func[0] / 100:                                                                                                       # меньше 1 цента купить нельзя
         usd_quant = round(data_for_func[2] + (int((data_for_func[1]/(data_for_func[0]))*100)/100), 2)                                                   # отбрасываем тысячные т.к. они будут учтены в uah_quant в виде остатка копеек на счету
@@ -92,7 +92,6 @@ def course_change():
     course_dict = {"course": course}
     upload_files(course_dict)
     return
-
 
 
 def restart():
