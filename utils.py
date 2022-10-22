@@ -29,72 +29,76 @@ def upload_files(filename):
     return
 
 
+def round_all(number):
+    number = int(number * 100)/100
+    return number
+
+
 def rate(global_data):
     price = "".join("{:.02f}".format(global_data["course"]))
     return price
 
 
-def available(data_for_fun):
-    balance = " ".join([(str(k)+" "+ "{:.02f}".format(v)) for k, v in global_data.items()][1:3])
+def available(global_data):
+    balance = "".join("UAH {:.02f}".format(global_data["UAH"]) + " " + "USD {:.02f}".format(global_data["USD"]))
     return balance
 
-
-def buy_xxx(buy_usd):
+def buy_xxx(buy_usd, data_for_func):
     buy_usd_exch = buy_usd * data_for_func[0]
     if data_for_func[1] - buy_usd_exch >= 0:
-        uah_quant = round(data_for_func[1] - buy_usd_exch, 2)
-        usd_quant = round(data_for_func[2] + buy_usd, 2)
+        uah_quant = round_all(data_for_func[1] - buy_usd_exch)
+        usd_quant = round_all(data_for_func[2] + buy_usd)
         buy_xxx_dict = {"UAH": uah_quant, "USD": usd_quant}
         upload_files(buy_xxx_dict)
     else:
-        req_bal = round(buy_usd_exch, 2)
-        avail_bal = round(data_for_func[1], 2)
+        req_bal = round_all(buy_usd_exch)
+        avail_bal = round_all(data_for_func[1])
         print(f"UNAVAILABLE, REQUIRED BALANCE UAH {req_bal}, AVAILABLE {avail_bal}")
 
     return
 
 
-def sell_xxx(sell_usd):
+def sell_xxx(sell_usd, data_for_func):
     if data_for_func[2] - sell_usd >= 0:
-        usd_quant = round((data_for_func[2] - sell_usd), 2)
-        uah_quant = round(data_for_func[1] + (sell_usd*data_for_func[0]), 2)
+        usd_quant = round_all((data_for_func[2] - sell_usd))
+        uah_quant = round_all(data_for_func[1] + (sell_usd*data_for_func[0]))
         sell_xxx_dict = {"UAH": uah_quant, "USD": usd_quant}
         upload_files(sell_xxx_dict)
     else:
         req_bal = sell_usd
-        avail_bal = round(data_for_func[2], 2)
+        avail_bal = round_all(data_for_func[2])
         print(f"UNAVAILABLE, REQUIRED BALANCE USD {req_bal}, AVAILABLE {avail_bal}")
     return
 
 
-def buy_all():
+def buy_all(data_for_func):
     if data_for_func[1] > data_for_func[0] / 100:                                                                                                       # меньше 1 цента купить нельзя
-        usd_quant = round(data_for_func[2] + (int((data_for_func[1]/(data_for_func[0]))*100)/100), 2)                                                   # отбрасываем тысячные т.к. они будут учтены в uah_quant в виде остатка копеек на счету
-        uah_quant = round(((data_for_func[1]/data_for_func[0]) - (int((data_for_func[1]/(data_for_func[0]))*100)/100))*data_for_func[0], 2)             # вычисляем тясячные и умножам на курс доллара, получаем остаток
+        usd_quant = round_all(data_for_func[2] + (int((data_for_func[1]/(data_for_func[0]))*100)/100))                                                   # отбрасываем тысячные т.к. они будут учтены в uah_quant в виде остатка копеек на счету
+        uah_quant = round_all(((data_for_func[1]/data_for_func[0]) - (int((data_for_func[1]/(data_for_func[0]))*100)/100))*data_for_func[0])             # вычисляем тясячные и умножам на курс доллара, получаем остаток
         buy_all_dict = {"UAH": uah_quant, "USD": usd_quant}
         upload_files(buy_all_dict)
     return
 
 
-def sell_all():
+def sell_all(data_for_func):
     if data_for_func[2] >= 0.01:
-        uah_quant = round(data_for_func[1] + (data_for_func[2] * data_for_func[0]), 2)
+        uah_quant = round_all(data_for_func[1] + (data_for_func[2] * data_for_func[0]))
         usd_quant = 0.00
         sell_all_dict = {"UAH": uah_quant, "USD": usd_quant}
         upload_files(sell_all_dict)
     return
 
 
-def course_change():
+def course_change(data_for_func):
     start = data_for_func[0] - data_for_func[3]
     stop = data_for_func[0] + data_for_func[3]
-    course = float('{:.2f}'.format(round(rnd.uniform(start, stop), 2)))
+    course = '{:.2f}'.format(rnd.uniform(start, stop))
     course_dict = {"course": course}
     upload_files(course_dict)
     return
 
 
-def restart():
+def restart(config_dir):
     with open(config_dir, "r") as json_file:
         data = json.load(json_file)
     upload_files(data)
