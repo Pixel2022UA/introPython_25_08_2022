@@ -44,3 +44,11 @@ example = Quotes()
 example.get_quotes(4)
 example.print_quotes(2, separator=" - ")
 example.save_quotes(5)
+
+
+### Или так:
+
+quant = 3
+example.get_quotes(quant)
+example.print_quotes(quant, separator=" - ")
+example.save_quotes(quant)
